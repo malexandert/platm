@@ -1,0 +1,14 @@
+body {
+	font-family: "Source Code Pro";
+	font-weight: 400;
+}
+
+.site-title {
+	font-weight: 700;
+}
+
+.col-lg-1 {
+	float: none;
+	display: inline-block;
+	vertical-align: middle;
+}

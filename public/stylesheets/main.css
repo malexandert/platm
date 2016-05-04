@@ -1,0 +1,37 @@
+body {
+	font-family: "Source Code Pro";
+	font-weight: 400;
+}
+
+.site-title {
+	font-weight: 700;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.gallery-link {
+	margin-top: 10px;
+	width: 300px;
+	height: 300px;
+	color: white;
+	line-height: 300px;
+}
+
+.high-level {
+	background-image: url("../images/high-level.jpg")
+}
+
+.solvethemall {
+	background-image: url("../images/solvethemall.jpg");
+}
+
+.grad {
+	background-image: url("../images/gradient.jpg");
+}
+
+.gallery-img {
+	margin: 30px auto 0 auto;
+}
