@@ -18,13 +18,9 @@ object AdditionTuringMachine
     )
 
   def apply(i: Int, j: Int): Unit = {
-    tape = Seq()
-    tape = tape ++ (toUnary(i) + "0" + toUnary(j)).toSeq
+    tape = tape ++ ("0" + toUnary(i) + "0" + toUnary(j) + "0").toSeq
     run(0, 0)
-    println(fromUnary(tape mkString))
+    println(s"Result: ${fromUnary(tape mkString)}")
+    tape = Seq()
   }
-
-  private def toUnary(i: Int): String = (Seq.tabulate(i)(n => '1')) mkString ""
-
-  private def fromUnary(s: String): Int = s.foldLeft(0)((n, c) => n + c.asDigit)
 }

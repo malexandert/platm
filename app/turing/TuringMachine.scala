@@ -2,7 +2,7 @@ package turing
 
 import scala.collection.mutable.Seq
 
-abstract class TuringMachine(
+abstract class TuringMachine[A](
     Q: Set[State],
     Sigma: Alphabet,
     q0: State,
@@ -14,6 +14,7 @@ abstract class TuringMachine(
   def delta: Map[(State, Char), (State, Char, Direction)]
 
   def run(q: State, head: Int): (State, Int) = {
+    println(formatTape(head))
     if (q == qH) {
       (q, head)
     } else delta(q, tape(head)) match {
@@ -35,5 +36,16 @@ abstract class TuringMachine(
     }
   }
 
+  protected def toUnary(i: Int): String =
+    (Seq.tabulate(i)(n => '1')) mkString ""
+
+  protected def fromUnary(s: String): Int =
+    s.foldLeft(0)((n, c) => n + c.asDigit)
+
+  protected def formatTape(head: Int): String = {
+    tape.zipWithIndex.foldLeft(""){case (str, (chr, idx)) =>
+      if (idx == head) str + s"[$chr]" else str + s" $chr "
+    }
+  }
 
 }
