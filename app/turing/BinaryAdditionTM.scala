@@ -16,11 +16,13 @@ object BinaryAdditionTM
     (0, '0') -> (0, '1', Left),
     (0, '1') -> (1, '0', Left),
     (0, '+') -> (4, '#', Right),
+    (0, '#') -> (0, '#', Right),
 
     // State 1 finds the plus sign
     (1, '0') -> (1, '0', Left),
     (1, '1') -> (1, '1', Left),
     (1, '+') -> (3, '+', Left),
+    (1, '#') -> (1, '#', Left),
 
     // State 2 (the state state) finds the right end of the 2nd input
     (2, '0') -> (2, '0', Right),
