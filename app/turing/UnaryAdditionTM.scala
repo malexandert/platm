@@ -46,7 +46,6 @@ object UnaryAdditionTM
     val (_,_,log) = run(q0, 0, "")
     val result = tape mkString ""
     val operationLog = log + s"\nResult: $result (${fromUnary(result)})"
-    operationLog.split("\n") foreach println
 
     // Clear tape for next run
     tape = Seq()

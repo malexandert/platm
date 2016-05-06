@@ -51,7 +51,6 @@ object BinaryAdditionTM
     val (_,_,log) = run(q0, 1, "")
     val result = (tape mkString "") filter (c => c == '1' || c == '0')
     val operationLog = log + s"\nResult: $result (${Integer.parseInt(result, 2)})"
-    operationLog.split("\n") foreach println
 
     // Clear tape for next run
     tape = Seq()
