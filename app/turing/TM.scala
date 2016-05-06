@@ -2,7 +2,7 @@ package turing
 
 import scala.collection.mutable.Seq
 
-abstract class TuringMachine[A](
+abstract class TM(
     Q: Set[State],
     Sigma: Alphabet,
     q0: State,

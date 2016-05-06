@@ -2,8 +2,11 @@ package turing
 
 import scala.collection.mutable.Seq
 
-object AdditionTuringMachine
-    extends TuringMachine(Set(0,1,2,3,4,5), Set(0,1), 0, 5) {
+object UnaryAdditionTM
+    extends TM(Set(0,1,2,3,4,5), Set('0','1'), 0, 5) {
+  val q0 = 0
+  val qH = 5
+
   val delta = Map(
       (0, '0') -> (0, '0', Right),
       (0, '1') -> (1, '1', Right),
@@ -19,8 +22,9 @@ object AdditionTuringMachine
 
   def apply(i: Int, j: Int): Unit = {
     tape = tape ++ ("0" + toUnary(i) + "0" + toUnary(j) + "0").toSeq
-    run(0, 0)
-    println(s"Result: ${fromUnary(tape mkString)}")
+    run(q0, 0)
+    val result = tape mkString ""
+    println(s"Result: $result (${fromUnary(result)})")
     tape = Seq()
   }
 }

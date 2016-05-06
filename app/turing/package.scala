@@ -7,5 +7,4 @@ package object turing {
   type State = Int
 
   type Alphabet = Set[Char]
-  type Transition = ((State, Char), (State, Char, Direction))
 }

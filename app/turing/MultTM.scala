@@ -2,8 +2,8 @@ package turing
 
 import scala.collection.mutable.Seq
 
-object MultTuringMachine
-    extends TuringMachine((0 to 17).toSet, Set(0,1), 0, 16) {
+object MultTM
+    extends TM((0 to 17).toSet, Set(0,1), 0, 16) {
   val delta = Map(
       (0, '0') -> (1, '0', Right),
       (0, '1') -> (2, '0', Right),
