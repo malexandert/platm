@@ -14,6 +14,8 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "com.typesafe" % "config" % "1.3.0"
+libraryDependencies += "org.scala-lang.modules" %% "scala-pickling" % "0.10.1"
+libraryDependencies += "com.twitter" %  "bijection-core_2.11" % "0.9.2"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
