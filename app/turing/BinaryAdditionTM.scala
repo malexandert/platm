@@ -1,12 +1,11 @@
 package turing
 
-import scala.collection.mutable.Seq
+import scala.collection.mutable
 
 /**
  * A TM object to add two numbers in binary. There are 6 states and 4 symbols
  */
-object BinaryAdditionTM
-    extends TM(Set(0,1,2,3,4,5), Set('0','1','#','+'), 2, 5) {
+object BinaryAdditionTM extends TM {
   val q0 = 2
   val qH = 5
   val blankSymbol = '#'
@@ -55,7 +54,7 @@ object BinaryAdditionTM
     val operationLog = log + s"\nResult: $result (${Integer.parseInt(result, 2)})"
 
     // Clear tape for next run
-    tape = Seq()
+    tape = mutable.Seq.empty[Char]
     operationLog
   }
 }

@@ -3,12 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                        controllers.Application.main
-GET     /turing/:tm/:x/:y        controllers.Application.turing(tm: String, x: Int,y: Int)
-GET     /custom/:tm              controllers.Application.custom(tm: String)
+GET     /                           controllers.Application.main
+GET     /turing/:tm/:x/:y           controllers.Application.turing(tm: String, x: Int,y: Int)
+GET     /custom/:tm/:init/:in       controllers.Application.custom(tm: String, init: String, in: String)
 
-POST    /compute/:tm             controllers.Application.computeFormResponse(tm: String)
-POST    /make-custom             controllers.Application.customTmFormResponse
+POST    /compute/:tm                controllers.Application.computeFormResponse(tm: String)
+POST    /make-custom                controllers.Application.customTmFormResponse
+POST    /customResubmit/:tm/:init   controllers.Application.customResubmit(tm: String, init: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file         controllers.Assets.versioned(path="/public", file: Asset)

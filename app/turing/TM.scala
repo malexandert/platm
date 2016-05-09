@@ -8,13 +8,10 @@ import scala.collection.mutable.Seq
  * The Turing Machines represented by this class are read-first, one tape
  * Turing Machines
  */
-abstract class TM(
-    Q: Set[State],
-    Sigma: Alphabet,
-    q0: State,
-    qH: State) {
-  require((Q contains q0) && (Q contains qH))
+abstract class TM {
 
+  def q0: State // The start state
+  def qH: State // The end state
   var tape: Seq[Char] = Seq() // The work tape (these TM's only have one)
   def blankSymbol: Char // The abstract blank symbol for the TM
 

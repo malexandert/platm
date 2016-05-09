@@ -1,12 +1,11 @@
 package turing
 
-import scala.collection.mutable.Seq
+import scala.collection.mutable
 
 /**
  * A TM object to add two numbers in unary. There are 6 states and 2 symbols
  */
-object UnaryAdditionTM
-    extends TM(Set(0,1,2,3,4,5), Set('0','1'), 0, 5) {
+object UnaryAdditionTM extends TM {
   val q0 = 0
   val qH = 5
   val blankSymbol = '0'
@@ -48,7 +47,7 @@ object UnaryAdditionTM
     val operationLog = log + s"\nResult: $result (${fromUnary(result)})"
 
     // Clear tape for next run
-    tape = Seq()
+    tape = mutable.Seq.empty[Char]
     operationLog
   }
 
