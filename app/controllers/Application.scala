@@ -51,7 +51,6 @@ class Application extends Controller {
 
   def computeFormResponse(tm: String) = Action { implicit request =>
     try {
-      println(request.body)
       val (x,y) = arithInputsForm.bindFromRequest.get
       Redirect(routes.Application.turing(tm,x,y))
     } catch {
@@ -110,7 +109,6 @@ class Application extends Controller {
 
   def customResubmit(tm: String, init: String) = Action { implicit request => 
     val input = customResubmitForm.bindFromRequest.get
-    println(input)
     Redirect(routes.Application.custom(tm, init, input))
   }
 

@@ -26,6 +26,33 @@
                 <li> When you generate a TM, the URL will be of the form <b>http://platm.herokuapp.com/custom/`tm code`/`init code`/input</b>. The TM code is a base 64 string specifiying the machine's transitions, while the init code is a base 64 string that specifies the initial conditions (q0, qH, blank symbol, start position). To use the same Turing machine later, you can simply save these codes and re-enter this url along with a string for the input
             </ul>
         </p>
+        <p>
+            As an example, here is the description for a Turing machine for binary addition<br>
+            <br>
+            0001L<br>
+            0110L<br>
+            0+4#R<br>
+            0#0#R<br>
+            1010L<br>
+            1111L<br>
+            1+3+L<br>
+            1#1#L<br>
+            2020R<br>
+            2121R<br>
+            2+2+R<br>
+            2#0#L<br>
+            3021R<br>
+            3130L<br>
+            3#21R<br>
+            414#R<br>
+            4#5#S<br>
+            <br>
+            Q0: 2 <br>
+            QH: 5 <br>
+            Blank Symbol: # <br>
+            Start position: 1 <br>
+            Input: A+B, where A and B are binary numbers. So, for example, 3 + 5 would be 11+101
+        </p>
         Custom Turing Machine Description:<br>
             <textarea rows="4" cols="50" name="description" form="tm-input"></textarea><br>
             <form method="post" id="tm-input" action="make-custom" autocomplete="off">
