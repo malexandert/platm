@@ -45,6 +45,10 @@ class Application extends Controller {
     Ok(views.html.main("PlaTM"))
   }
 
+  def create = Action {
+    Ok(views.html.custom("PlaTM: Custom Machine"))
+  }
+
   def computeFormResponse(tm: String) = Action { implicit request =>
     try {
       println(request.body)

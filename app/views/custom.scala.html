@@ -1,0 +1,40 @@
+@(title: String)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("bootstrap/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700">
+        <meta name="viewport" content="width =device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>PlaTM: A Play Framework Turing Machine</h1>
+        <h3>Run your own custom machine!</h3>
+
+        <p>
+        Instructions
+            <ul>
+                <li> The machines created by this program are all single tape "standard" Turing machines. These have one start and end state each, and the order of operations is read -> evaluate -> write -> move
+                <li> For the "description", enter transitions, one per line, of the form ABCDE, where A is the original state, B is the read character, C is the new state, D is the write character, and E = L, R, or S, for the tape head. For example, if your TM is on state 4, reads character 'f' and then moves the tape head right, writes character '8', and goes to state 7, that line would look like 4f78R
+                <li> States can only be natural numbers, but characters can be anything (as long as they're single characters, not strings)
+                <li> Make sure your transitions are total (every combination of state and read symbol are accounted for). However, you don't have to write transitions from the halting state (assume that the TM never "passes through" that state - once computation reaches there, everything halts). If your transitions aren't total besides that, the computation may not work
+                <li> For the input, write it exactly as it would appear on the tape. For example, in a unary addition TM that takes two unary numbers 111 and 11 separated by the blank symbol 0, you would write 111011 as the input. Don't use any characters that aren't part of the alphabet!
+                <li> The start position is the spot on the tape where the head initially starts. You can choose any number in the range [0, len(input) + 1], with the ends of the interval representing the tape squares immediately to the left and the right of the input (which will be blank). To start the head on the first character of the input, choose a start position of 1
+                <li> When you generate a TM, the URL will be of the form <b>http://platm.herokuapp.com/custom/`tm code`/`init code`/input</b>. The TM code is a base 64 string specifiying the machine's transitions, while the init code is a base 64 string that specifies the initial conditions (q0, qH, blank symbol, start position). To use the same Turing machine later, you can simply save these codes and re-enter this url along with a string for the input
+            </ul>
+        </p>
+        Custom Turing Machine Description:<br>
+            <textarea rows="4" cols="50" name="description" form="tm-input"></textarea><br>
+            <form method="post" id="tm-input" action="make-custom" autocomplete="off">
+                Q0: <input type="number" name="q0">
+                QH: <input type="number" name="qH">
+                Blank symbol: <input type="text" name="blankSymbol">
+                Start position: <input type="numer" name="startPosition">
+                Input: <input type="text" name="input">
+                <input type="submit">
+            </form>
+    </body>
+</html>

@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.main
+GET     /create                     controllers.Application.create
 GET     /turing/:tm/:x/:y           controllers.Application.turing(tm: String, x: Int,y: Int)
 GET     /custom/:tm/:init/:in       controllers.Application.custom(tm: String, init: String, in: String)
 
